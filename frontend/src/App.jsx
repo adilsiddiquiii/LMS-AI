@@ -23,7 +23,7 @@ import ViewLectures from "./pages/ViewLectures.jsx";
 import Mycourses from "./pages/Mycourses.jsx";
 import SearchWithAi from "./pages/SearchWithAi.jsx";
 
-export const serverUrl = "http://localhost:4001";
+export const serverUrl = "https://lms-ai-73va.onrender.com";
 
 function App() {
   useCurrentUser();
