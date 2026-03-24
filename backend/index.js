@@ -10,14 +10,14 @@ import paymentRouter from "./routes/paymentRoute.js";
 dotenv.config();
 
 // midwares
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 4001;
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://lms-ai-1-64wc.onrender.com"],
+    origin: ["https://lms-ai-1-64wc.onrender.com", "http://localhost:5173"],
     credentials: true,
   })
 );

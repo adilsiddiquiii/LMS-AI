@@ -1,3 +1,10 @@
+LIVE LINK 
+
+https://lms-ai-1-64wc.onrender.com/
+
+
+
+
 # 🎓 AI Powered Learning Management System (LMS)
 
 A full-stack Learning Management System built using the MERN stack with AI-powered search, Google authentication, Razorpay payments, and role-based access for students and educators.
@@ -77,6 +84,21 @@ This platform allows educators to create and publish courses, while students can
 
 ---
 
+
+
+
+
+
+
+
+
+
+Remaining - navigation button for login and sign-up
+
+
+
+
+
 ## ⚙️ Environment Variables
 
 Create a `.env` file in the backend:
@@ -93,3 +115,6 @@ CLOUDINARY_API_SECRET=your_secret
 RAZORPAY_KEY_ID=your_key
 RAZORPAY_KEY_SECRET=your_secret
 GEMINI_API_KEY=your_gemini_key
+
+
+
