@@ -25,6 +25,7 @@ import SearchWithAi from "./pages/SearchWithAi.jsx";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import LoadingScreen from "./components/LoadingScreen.jsx";
+import BackendStatusLoader from "./components/BackendStatusLoader.jsx";
 
 export const serverUrl =
   window.location.hostname === "localhost"
@@ -151,11 +152,12 @@ function App() {
     checkBackend();
   }, []);
 
-  if (!isBackendReady) {
-    return <LoadingScreen />;
-  }
-
-  return <AppContent />;
+  return (
+    <>
+      {!isBackendReady && <BackendStatusLoader />}
+      <AppContent />
+    </>
+  );
 }
 
 export default App;
