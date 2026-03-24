@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173", "https://lms-ai-1-64wc.onrender.com"],
     credentials: true,
   })
 );
@@ -30,6 +30,10 @@ app.use('/api/order', paymentRouter)
 
 app.get("/", (req, res) => {
   res.send("Hello");
+});
+
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ status: "ok", message: "Backend is awake" });
 });
 
 app.listen(PORT, () => {

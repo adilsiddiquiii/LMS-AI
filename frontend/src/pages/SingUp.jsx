@@ -3,6 +3,7 @@ import google from "../assets/google.jpg";
 import logo from "../assets/logo.jpg";
 import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
+import { FaLongArrowAltLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { serverUrl } from "../App";
@@ -68,7 +69,15 @@ function SingUp() {
   };
 
   return (
-    <div className="bg-[#dddbdb] w-[100vw] h-[100vh] flex items-center justify-center">
+    <div className="bg-[#dddbdb] w-[100vw] h-[100vh] flex items-center justify-center relative">
+      <button
+        onClick={() => navigate("/")}
+        className="absolute top-6 left-6 flex items-center gap-2 px-4 py-2 rounded-md bg-white shadow-md hover:bg-gray-100 text-sm font-medium transition-all"
+      >
+        {" "}
+        <FaLongArrowAltLeft />
+        Back
+      </button>
       <form
         onSubmit={(e) => e.preventDefault()}
         className="w-[90%] md:w-200 h-140 bg-[white] shadow-xl rounded-2xl flex"

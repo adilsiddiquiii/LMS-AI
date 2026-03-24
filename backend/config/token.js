@@ -11,3 +11,4 @@ export const genToken = async (userId) => {
     console.log(`token not generated : error is ${error}`);
   }
 };
+ 

@@ -27,7 +27,7 @@ function CreateLecture() {
         { withCredentials: true }
       );
       console.log(result);
-      dispatch(setLectureData([...lectureData, result.data.lectures]));
+      dispatch(setLectureData([...lectureData, result.data.lecture]));
       setLoading(false);
       setLectureTitle("");
       navigate('/courses')

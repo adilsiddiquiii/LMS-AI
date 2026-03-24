@@ -8,7 +8,7 @@ import { User } from "../models/userModel.js";
 if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
   console.error("RAZORPAY_KEY_ID:", process.env.RAZORPAY_KEY_ID);
   console.error("RAZORPAY_KEY_SECRET:", process.env.RAZORPAY_KEY_SECRET);
-  throw new Error("❌ Razorpay keys missing. Check your backend/.env file.");
+  throw new Error("Razorpay keys missing. Check your backend/.env file.");
 }
 
 

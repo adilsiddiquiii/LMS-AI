@@ -22,15 +22,22 @@ import ScrollTop from "./components/ScrollTop.jsx";
 import ViewLectures from "./pages/ViewLectures.jsx";
 import Mycourses from "./pages/Mycourses.jsx";
 import SearchWithAi from "./pages/SearchWithAi.jsx";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import LoadingScreen from "./components/LoadingScreen.jsx";
 
-export const serverUrl = "http://localhost:4001";
+export const serverUrl =
+  window.location.hostname === "localhost"
+    ? "http://localhost:4001"
+    : "https://lms-ai-73va.onrender.com";
 
-function App() {
+const AppContent = () => {
   useCurrentUser();
   useCreatorCourse();
   usePublishedCourse();
   ScrollTop();
   const { userdata } = useSelector((state) => state.user);
+
   return (
     <>
       <ToastContainer position="bottom-right" />
@@ -124,6 +131,31 @@ function App() {
       </Routes>
     </>
   );
+};
+
+function App() {
+  const [isBackendReady, setIsBackendReady] = useState(false);
+
+  useEffect(() => {
+    const checkBackend = async () => {
+      try {
+        // Silent retry until backend responds
+        await axios.get(serverUrl + "/api/health");
+        setIsBackendReady(true);
+      } catch (error) {
+        // Retry every 2 seconds
+        setTimeout(checkBackend, 2000);
+      }
+    };
+
+    checkBackend();
+  }, []);
+
+  if (!isBackendReady) {
+    return <LoadingScreen />;
+  }
+
+  return <AppContent />;
 }
 
 export default App;
